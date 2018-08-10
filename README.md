@@ -9,25 +9,26 @@ Forking Repository
 Making a Local Clone
 1.	Navigate to your newly forked repository (on your github account)
 2.	Copy the URL
-3.	In your desired directory type git clone https://github.com/jherrick/361-proj
+3.	In your desired directory type git clone [url-that-you-just-copied]
 
 Adding a Remote
-1.	In same directory you cloned into, open bash/terminal
+1.	In same directory you just put your local clone in
 2.	Add a git remote pointing back to original repository by typing git remote add https://github.com/jherrick/361-proj
 
 Keep your Fork in Sync
 1.	Pull changes from original repo with git pull upstream master
-2.	Push these changes to your forked repo with git push origin master
+2.	Push these changes to YOUR forked repo with git push origin master
 
 Optional (Safe) Feature Branch Method
 1.	In directory type git checkout -b [new-branch-name]
-2.	Code
+2.	Write your code
 3.	Push changes in branch back to github by typing git push origin [new-branch-name]
 
 Create a Pull Request to merge your code with main repository
-1.  Go to MAIN repository and click “Pull Request” and follow Instructions
+1.  Go to MAIN repository and click “Pull Request” and follow Instructions.
+2.  [OPTIONAL]  If you used a branch make sure your pull request is sourcing from your feature branch NOT your master
 
 Post-Pull Request Cleanup
 1.	If you used a branch, delete it with git branch -d [branch-name]
-2.	Update master branch in your forked repo with git push origin master
-3.	Push deletion of feature branch to your github repo with git push --delete origin [branch-name]
+2.	Update master in your forked repo with git push origin master
+3.	If you used a branch, push deletion of feature branch to your github repo with git push --delete origin [branch-name]
