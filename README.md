@@ -25,7 +25,7 @@ Optional (Safe) Feature Branch Method
 3.	Push changes in branch back to github by typing git push origin [new-branch-name]
 
 Create a Pull Request to merge your code with main repository
-•	Go to MAIN repository and click “Pull Request” and follow Instructions
+1.  Go to MAIN repository and click “Pull Request” and follow Instructions
 
 Post-Pull Request Cleanup
 1.	If you used a branch, delete it with git branch -d [branch-name]
