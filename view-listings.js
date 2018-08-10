@@ -3,7 +3,7 @@ module.exports = function(){
 	var express = require('express');
 	var router = express.Router();
 
-	// Characters Functions
+	// Listings Functions
 	function getListings(res, mysql, context, complete){
 	mysql.pool.query('SELECT', function(err, results, fields){
 			if(err){
@@ -15,7 +15,7 @@ module.exports = function(){
 		});
 	}
 
-	// Characters Routes
+	// Listings Routes
 	router.get('/', function(req, res){
 		var context = {};
 		callbackCount = 0;
