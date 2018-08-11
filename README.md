@@ -1,6 +1,10 @@
 # 361-proj
 rental seeking application
 
+Install Git if you don't have it and create a Github account if you don't have one.  
+
+Quick Git Guide Here: http://rogerdudler.github.io/git-guide/
+
 Forking Repository
 1.	Make sure you’re logged into GitHub with your account.
 2.	Go to this repository [https://github.com/jherrick/361-proj]
