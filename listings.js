@@ -3,20 +3,8 @@ module.exports = function(){
 	var express = require('express');
 	var router = express.Router();
 
-	// Listings Functions
-	function getListings(res, mysql, context, complete){
-	mysql.pool.query('SELECT id, title, price, photos FROM properties', function(err, results, fields){
-			if(err){
-				res.write(JSON.stringify(err));
-				res.end();
-			}
-			context.listings = results;
-			complete();
-		});
-	}
-
-	function getListingsByAC(res, mysql, context, id, complete){
-	var sql = 'SELECT id, title, price, photos FROM properties WHERE zip_code = ?'
+	function getListing(res, mysql, context, id, complete){
+	var sql = 'SELECT * FROM properties WHERE id = ?'
 	var inserts = [id];
 	mysql.pool.query(sql, inserts, function(err, results, fields){
 			if(err){
@@ -28,6 +16,7 @@ module.exports = function(){
 		});
 	}
 
+	/*
 	// Listings Routes
 	router.get('/', function(req, res){
 		var context = {};
@@ -41,18 +30,18 @@ module.exports = function(){
 				res.render('view-listings', context);
 			}
 		}
-	});
+	});*/
 
 	router.get('/:id', function(req, res){
       callbackCount = 0;
       var context = {};
       var mysql = req.app.get('mysql');
-      getListingsByAC(res, mysql, context, req.params.id, complete);
+      getListing(res, mysql, context, req.params.id, complete);
 
       function complete(){
           callbackCount++;
           if(callbackCount >= 1){
-              res.render('view-listings', context);
+              res.render('listings', context);
           }
       }
   });

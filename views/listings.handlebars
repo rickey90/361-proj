@@ -1,0 +1,21 @@
+{{#each listings}}
+<h2>Property Details</h2>
+
+<h3>{{title}}</h3>
+
+<img src="/{{photos}}" alt="{{title}}">
+
+<table id="table">
+   <tbody>
+        <tr><td>${{price}}</td></tr>
+        <tr><td>Address: {{street_address}}, {{city}}, {{state}} {{zip_code}}</td></tr>
+        <tr><td>Beds: {{num_beds}}</td></tr>
+        <tr><td>Baths: {{num_baths}}</td></tr>
+        <tr><td>SqFt: {{sqft}}</td></tr>
+        <tr><td>Type: {{type}}</td></tr>
+        <tr><td>Pets? {{allows_pets}}</td></tr>
+        <tr><td>Date Listed: {{date_listed}}</td></tr>
+        <tr><td>Details: {{description}}</td></tr>
+   </tbody>
+</table>
+{{/each}}

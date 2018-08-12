@@ -6,10 +6,10 @@
       {{#each listings}}
         <tr>
           <td>{{id}}</td>
-          <td><img src="{{photos}}" alt="{{title}}"></td>
+          <td><img src="/{{photos}}" alt="{{title}}"></td>
           <td>{{title}}</td>
           <td>${{price}}</td>
-          <td><a href="/view-listings/{{characterId}}">View Property</a></td>
+          <td><a href="/listings/{{id}}">View Property</a></td>
         </tr>
       {{/each}}
    </tbody>
