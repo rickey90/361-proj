@@ -30,7 +30,7 @@ module.exports = function(){
 		}
 	});
 
-    router.post('/', function(req, res){
+   /* router.post('/', function(req, res){
         //console.log(req.body)
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO  () VALUES (?,?,?,?)";
@@ -44,7 +44,7 @@ module.exports = function(){
                 res.redirect('/view-listings');
             }
         });
-    });
+    }); */
 
 	return router;
 }();
