@@ -66,7 +66,7 @@ module.exports = function(){
       function complete(){
           callbackCount++;
           if(callbackCount >= 1){
-              res.redirect('/view-listings');
+              res.render('view-listings', context);
           }
       }
   });
