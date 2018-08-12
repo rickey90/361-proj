@@ -55,9 +55,23 @@ module.exports = function(){
               res.render('view-listings', context);
           }
       }
+    });
+
+	router.post('/', function(req, res){
+      callbackCount = 0;
+      var context = {};
+      var mysql = req.app.get('mysql');
+      getListingsByAC(res, mysql, context, req.body.zipcode, complete);
+
+      function complete(){
+          callbackCount++;
+          if(callbackCount >= 1){
+              res.redirect('/view-listings');
+          }
+      }
   });
 
-   /* router.post('/', function(req, res){
+   /*router.post('/', function(req, res){
         //console.log(req.body)
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO  () VALUES (?,?,?,?)";
@@ -71,7 +85,7 @@ module.exports = function(){
                 res.redirect('/view-listings');
             }
         });
-    }); */
+    });*/ 
 
 	return router;
 }();
