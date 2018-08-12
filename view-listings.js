@@ -5,7 +5,20 @@ module.exports = function(){
 
 	// Listings Functions
 	function getListings(res, mysql, context, complete){
-	mysql.pool.query('SELECT', function(err, results, fields){
+	mysql.pool.query('SELECT id, title, price FROM properties', function(err, results, fields){
+			if(err){
+				res.write(JSON.stringify(err));
+				res.end();
+			}
+			context.listings = results;
+			complete();
+		});
+	}
+
+	function getListingsByAC(res, mysql, context, id, complete){
+	var sql = 'SELECT id, title, price FROM properties WHERE zip_code = ?'
+	var inserts = [id];
+	mysql.pool.query(sql, inserts, function(err, results, fields){
 			if(err){
 				res.write(JSON.stringify(err));
 				res.end();
@@ -29,6 +42,20 @@ module.exports = function(){
 			}
 		}
 	});
+
+	router.get('/:id', function(req, res){
+      callbackCount = 0;
+      var context = {};
+      var mysql = req.app.get('mysql');
+      getListingsByAC(res, mysql, context, req.params.id, complete);
+
+      function complete(){
+          callbackCount++;
+          if(callbackCount >= 1){
+              res.render('view-listings', context);
+          }
+      }
+  });
 
    /* router.post('/', function(req, res){
         //console.log(req.body)
