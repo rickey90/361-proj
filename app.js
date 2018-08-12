@@ -13,13 +13,13 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/static', express.static('public'));
 app.use('/', express.static('public'));
 app.set('port', process.argv[2]);
+app.use(express.static('views/images')); 
 
 // Routes & functions files
 app.use('/view-listings', require('./view-listings.js'));
 app.use('/tenant', require('./tenant.js'));
 app.use('/landlord', require('./landlord.js'));
-
-
+app.use('/listings', require('./listings.js'));
 
 
 /*// Home Route

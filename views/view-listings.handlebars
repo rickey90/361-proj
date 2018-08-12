@@ -1,1 +1,16 @@
-<h1>The View Listings Page</h1>
+
+<h2>Listings</h2>
+
+<table id="table">
+   <tbody>
+      {{#each listings}}
+        <tr>
+          <td>{{id}}</td>
+          <td><img src="/{{photos}}" alt="{{title}}"></td>
+          <td>{{title}}</td>
+          <td>${{price}}</td>
+          <td><a href="/listings/{{id}}">View Property</a></td>
+        </tr>
+      {{/each}}
+   </tbody>
+</table>
