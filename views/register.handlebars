@@ -1,0 +1,17 @@
+<html>
+<center>
+  <h3>Create Account</h3>
+  <form method="post" action="/register" method="post">
+  	<label for="username">Email:</label> <input type="email" id="username" name="username"><br /><br />
+  	<label for="password">Password:</label> <input type="password" id="password" name="password"><br /><br />
+    <input type="checkbox" name="landlord" id="landlord"> I am a landlord<br /><br />
+  	<button type = "submit">Register</button>
+  </form> 
+  <div>
+  	{{#if error}}
+  		<h5>An account already exists with that email. Please try again.</h5>
+  		<p> Already a user? <a href='/login'>Log In</a></p>
+  	{{/if}}
+  </div>
+</center>
+</html>

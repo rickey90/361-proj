@@ -5,6 +5,7 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 var mysql = require('./dbcon.js');
+var session = require('client-sessions');
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -23,11 +24,26 @@ app.use('/listings', require('./listings.js'));
 app.use('/login', require('./login.js'));
 app.use('/manage_prof', require('./manage_prof.js'));
 app.use('/manage_prop', require('./manage_prop.js')); 
-
+app.use('/register', require('./register.js'));
+app.use('/saved_listings', require('./saved_listings.js'));
+app.use(session({
+  cookieName: 'session',
+  secret: 'SuperSecretPassword',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
 
 // Home Route
 app.get('/', function(req, res){
   res.render('home');
+}); 
+
+app.get('/about', function(req, res){
+  res.render('about');
+}); 
+
+app.get('/careers', function(req, res){
+  res.render('careers');
 }); 
 
 

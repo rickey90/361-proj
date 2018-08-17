@@ -1,0 +1,23 @@
+<html>
+  <div style="margin: auto; padding: 100px;">
+    <h2>Your Saved Listings</h2>
+
+    {{#if listings}}
+    <table id="table">
+       <tbody>
+          {{#each listings}}
+            <tr>
+              <td>{{id}}</td>
+              <td><img src="/{{photos}}" alt="{{title}}"></td>
+              <td>{{title}}</td>
+              <td>${{price}}</td>
+              <td><button onclick="location.href='/listings/{{id}}'">View Property</button></td>
+            </tr>
+          {{/each}}
+       </tbody>
+    </table>
+    {{else}}
+      <h4>You have no saved listings.</h4>
+    {{/if}}
+  </div>
+</html>

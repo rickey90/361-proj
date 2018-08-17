@@ -42,6 +42,7 @@ module.exports = function(){
           	}
           	else
           	{
+          		//req.session.user = req.body.username;
           		res.render('user_home', context);
           	}
           }
