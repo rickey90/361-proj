@@ -22,10 +22,10 @@ app.use('/landlord', require('./landlord.js'));
 app.use('/listings', require('./listings.js'));
 
 
-/*// Home Route
+// Home Route
 app.get('/', function(req, res){
   res.render('home');
-}); */
+}); 
 
 
 // ERROR ROUTES
