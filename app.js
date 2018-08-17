@@ -21,6 +21,8 @@ app.use('/tenant', require('./tenant.js'));
 app.use('/landlord', require('./landlord.js'));
 app.use('/listings', require('./listings.js'));
 app.use('/login', require('./login.js'));
+app.use('/manage_prof', require('./manage_prof.js'));
+app.use('/manage_prop', require('./manage_prop.js')); 
 
 
 // Home Route
