@@ -20,6 +20,7 @@ app.use('/view-listings', require('./view-listings.js'));
 app.use('/tenant', require('./tenant.js'));
 app.use('/landlord', require('./landlord.js'));
 app.use('/listings', require('./listings.js'));
+app.use('/login', require('./login.js'));
 
 
 // Home Route
