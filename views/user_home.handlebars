@@ -1,7 +1,13 @@
 <html>
 <div class="jumbotron text-center">
   <h3>Welcome {{user.email}}</h3>
-  <button>Manage Profile</button>
-  <button>Manage Property</button>
+  <form action="/manage_prof" method="post">
+    <input type="hidden" value={{user.user_id}} name="id">
+    <button type="submit">View Profile</button>
+  </form>
+   <form action="/manage_prop" method="post">
+    <input type="hidden" value={{user.user_id}} name="id">
+    <button type="submit">Manage Property</button>
+  </form>
 </div>
 </html>
