@@ -4,7 +4,7 @@
   <form method="post" action="/register" method="post">
   	<label for="username">Email:</label> <input type="email" id="username" name="username"><br /><br />
   	<label for="password">Password:</label> <input type="password" id="password" name="password"><br /><br />
-    <input type="checkbox" name="landlord" id="landlord"> I am a landlord<br /><br />
+    <input type="checkbox" name="landlord" id="landlord" {{bindAttr landlord="isChecked" value =1}}> I am a landlord<br /><br />
   	<button type = "submit">Register</button>
   </form> 
   <div>

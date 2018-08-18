@@ -6,8 +6,11 @@ module.exports = function(){
 	//function registers the user in the database
   	router.post('/', function(req, res){
       var mysql = req.app.get('mysql');
+      var checked;
+      if(req.body.landlord === 1) { checked = 1; }
+      else { checked = 0; }
       var sql = "INSERT INTO users (email, member_since, password, is_landlord) VALUES (?,CURDATE(),?, ?)";
-      var inserts = [req.body.username, req.body.password, req.body.landlord];
+      var inserts = [req.body.username, req.body.password, checked];
       sql = mysql.pool.query(sql,inserts,function(error, results, fields){
           if(error){
               console.log(JSON.stringify(error))
