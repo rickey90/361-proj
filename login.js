@@ -2,6 +2,7 @@ module.exports = function(){
 
 	var express = require('express');
 	var router = express.Router();
+	var session = require('express-session');
 
 	//function authenticates the user
 	function authenticate_user(res, mysql, context, us, pw, complete){
@@ -30,6 +31,7 @@ module.exports = function(){
 	router.post('/', function(req, res){
       callbackCount = 0;
       var context = {};
+      req.session.user = req.body.username; 
       var mysql = req.app.get('mysql');
       authenticate_user(res, mysql, context, req.body.username, req.body.password, complete);
 
@@ -42,7 +44,6 @@ module.exports = function(){
           	}
           	else
           	{
-          		//req.session.user = req.body.username;
           		res.render('user_home', context);
           	}
           }
