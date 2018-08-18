@@ -5,7 +5,8 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 var mysql = require('./dbcon.js');
-var session = require('client-sessions');
+var session = require('express-session');
+//var cookieParser = require('cookie-parser');
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -17,6 +18,7 @@ app.set('port', process.argv[2]);
 app.use(express.static('views/images')); 
 
 // Routes & functions files
+app.use(session({secret: 'SuperSecretPassword'}));
 app.use('/view-listings', require('./view-listings.js'));
 app.use('/tenant', require('./tenant.js'));
 app.use('/landlord', require('./landlord.js'));
@@ -26,16 +28,11 @@ app.use('/manage_prof', require('./manage_prof.js'));
 app.use('/manage_prop', require('./manage_prop.js')); 
 app.use('/register', require('./register.js'));
 app.use('/saved_listings', require('./saved_listings.js'));
-app.use(session({
-  cookieName: 'session',
-  secret: 'SuperSecretPassword',
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000,
-}));
+//app.us(cookieParser());
 
 // Home Route
 app.get('/', function(req, res){
-  res.render('home');
+ res.render('home');
 }); 
 
 app.get('/about', function(req, res){

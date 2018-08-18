@@ -18,9 +18,9 @@
         <tr><td>Details: {{description}}</td></tr>
    </tbody>
 </table>
-{{/each}}
 
- <form action="" method="">
+ <form action="/saved_listings" method="post">
     <input type="hidden" value={{id}} name="id">
     <button type="submit">Save Listing</button>
   </form>
+{{/each}}
