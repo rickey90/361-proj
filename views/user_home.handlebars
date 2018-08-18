@@ -5,6 +5,9 @@
     <input type="hidden" value={{user.user_id}} name="id">
     <button type="submit">View Profile</button>
   </form>
+     <form action="/saved_listings" method="get">
+    <button type="submit">View Saved Listings</button>
+  </form>
    <form action="/manage_prop" method="post">
     <input type="hidden" value={{user.user_id}} name="id">
     <button type="submit">Manage Property</button>
